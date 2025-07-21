@@ -63,9 +63,9 @@ export default function NotesClient({ tag, initialSearch, initialData }: Props) 
           />
         )}
 
-        <button className={css.button} onClick={() => setIsModalOpen(true)}>
+        {/* <button className={css.button} onClick={() => setIsModalOpen(true)}>
           Create note +
-        </button>
+        </button> */}
       </header>
 
       {isLoading && !data && <Loader />}
@@ -81,7 +81,7 @@ export default function NotesClient({ tag, initialSearch, initialData }: Props) 
 
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
-          <NoteForm onClose={() => setIsModalOpen(false)} />
+          <NoteForm  />
         </Modal>
       )}
     </div>

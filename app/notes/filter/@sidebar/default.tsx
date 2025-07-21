@@ -1,12 +1,14 @@
 
 import Link from 'next/link';
 import css from './NotesSidebar.module.css';
+import { getTags } from '@/lib/api';
 
-export default function SidebarNotes() {
-  const tags = ['All', 'Todo', 'Work', 'Personal', 'Meeting', 'Shopping']
-
+export default async function SidebarNotes() {
+  const tags = await getTags();
 
   return (
+    <>
+    <Link href="/notes/action/create" className={css.menuLink}>Create note +</Link>
     <ul className={css.menuList}>
       {tags.map(tag => (
         <li key={tag} className={css.menuItem}>
@@ -15,6 +17,7 @@ export default function SidebarNotes() {
           </Link>
         </li>
       ))}
-    </ul>
+      </ul>
+      </>
   );
 }
